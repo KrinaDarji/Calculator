@@ -1,7 +1,7 @@
 let answer: any = <HTMLInputElement>document.getElementById("inptext");
 let list:any = <HTMLInputElement>document.getElementById("memory-list");
 let list1:any = <HTMLInputElement>document.getElementById("history-list");
-let myContainer1:any = <HTMLInputElement>document.getElementById("sm");
+
 let memoryRegister:any = [];
 let HistoryRegister:any = [];
 let calculate = (op: any) => {
@@ -65,11 +65,10 @@ let Answer = () => {
         let numberafter;
         let num;
         
-      let numberbefore1 = <HTMLInputElement>document.getElementById("sm") // displaying operations
+        document.getElementById('sm') as HTMLInputElement ; // displaying operations
         answer.value = eval(numberbefore);// for calculating basic math operations
         numberafter = answer.value;
         num = numberbefore + '=' + numberafter;
-        if(Number.isNaN(numberafter))return; // checks nan if yes then returned else will considered as number
         HistoryRegister.push(num); //pushes the elements in array
         list1.innerHTML='';
         HistoryRegister.forEach((element:any) => {
@@ -143,10 +142,10 @@ let f_e = () => {
 let square = () => answer.value = Math.pow(answer.value , 2);
 
 //function logarithm
-let log = () => answer.value = Math.log10(answer.value);
+let log = () => answer.value = Math.LOG10E;
 
 //function ln
-let ln = () => answer.value = Math.log(answer.value);
+let ln = () => answer.value = Math.log;
 
 //function 10pow x
 let powx = () => answer.value = Math.pow(10 , answer.value);
@@ -180,10 +179,7 @@ let floor = () => answer.value = Math.floor(answer.value);
 let ceil = () => answer.value = Math.ceil(answer.value);
 
 //function random
-//let random = () => answer.value = Math.random(answer.value);
-
-//function trunc
-let trunc = () => answer.value = Math.trunc(answer.value);
+let random = () => answer.value = Math.random();
 
 //function abs=>| x |
 let abs = () => answer.value = Math.abs(answer.value);
@@ -197,8 +193,6 @@ let xpow3 = () => answer.value = Math.pow(answer.value , 3);
 // function 2^x
 let powof2x = () => answer.value = Math.pow(2 , answer.value);
 
-//function of cuberoot
-let cbrt = () => answer.value = Math.cbrt(answer.value);
 
 // function of +/-
 let pm =  () =>     answer.value = -answer.value;
@@ -206,7 +200,6 @@ let pm =  () =>     answer.value = -answer.value;
 
 let MemorySave = () =>{
     let num = answer.value;
-    if(Number.isNaN(num))return; // checks nan if yes then returned else will considered as number
     memoryRegister.push(num); //pushes the elements in array
     list.innerHTML='';
     memoryRegister.forEach((element:any) => {
@@ -217,7 +210,6 @@ let MemorySave = () =>{
 //function memory plus
 let memoryplus = () => {
    let num = answer.value;
-    if(Number.isNaN(num)) return; // checks nan if yes then returned else will considered as number
    let lastvalue = list.lastChild.innerHTML; // takes last element of list and stores in lastvalue
    let ans = parseInt(lastvalue) + parseInt(num); //adds the last item in memory and the number
     memoryRegister.pop(lastvalue);//pops out the lastvalue in array
@@ -231,7 +223,6 @@ let memoryplus = () => {
 //function memory minus
 let memoryminus = () => {
     let num = answer.value;
-    if(Number.isNaN(num)) return; // checks  nan if yes then returned else will considered as number
     let lastvalue = list.lastChild.innerHTML;  // takes last element of list and stores in lastvalue
     let ans = parseInt(lastvalue) - parseInt(num); //substracts the last item in memory and the number
     memoryRegister.pop(lastvalue);//pops out the lastvalue in array

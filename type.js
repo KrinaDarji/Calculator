@@ -1,7 +1,6 @@
 var answer = document.getElementById("inptext");
 var list = document.getElementById("memory-list");
 var list1 = document.getElementById("history-list");
-var myContainer1 = document.getElementById("sm");
 var memoryRegister = [];
 var HistoryRegister = [];
 var calculate = function (op) {
@@ -62,12 +61,10 @@ var Answer = function () {
     }
     var numberafter;
     var num;
-    var numberbefore1 = document.getElementById("sm"); // displaying operations
+    document.getElementById('sm'); // displaying operations
     answer.value = eval(numberbefore); // for calculating basic math operations
     numberafter = answer.value;
     num = numberbefore + '=' + numberafter;
-    if (Number.isNaN(numberafter))
-        return; // checks nan if yes then returned else will considered as number
     HistoryRegister.push(num); //pushes the elements in array
     list1.innerHTML = '';
     HistoryRegister.forEach(function (element) {
@@ -132,9 +129,9 @@ var f_e = function () {
 //function square
 var square = function () { return answer.value = Math.pow(answer.value, 2); };
 //function logarithm
-var log = function () { return answer.value = Math.log10(answer.value); };
+var log = function () { return answer.value = Math.LOG10E; };
 //function ln
-var ln = function () { return answer.value = Math.log(answer.value); };
+var ln = function () { return answer.value = Math.log; };
 //function 10pow x
 var powx = function () { return answer.value = Math.pow(10, answer.value); };
 //function exp
@@ -156,9 +153,7 @@ var floor = function () { return answer.value = Math.floor(answer.value); };
 // function ceil
 var ceil = function () { return answer.value = Math.ceil(answer.value); };
 //function random
-//let random = () => answer.value = Math.random(answer.value);
-//function trunc
-var trunc = function () { return answer.value = Math.trunc(answer.value); };
+var random = function () { return answer.value = Math.random(); };
 //function abs=>| x |
 var abs = function () { return answer.value = Math.abs(answer.value); };
 //function reciprocal
@@ -167,15 +162,11 @@ var reciprocal = function () { return answer.value = 1 / answer.value; };
 var xpow3 = function () { return answer.value = Math.pow(answer.value, 3); };
 // function 2^x
 var powof2x = function () { return answer.value = Math.pow(2, answer.value); };
-//function of cuberoot
-var cbrt = function () { return answer.value = Math.cbrt(answer.value); };
 // function of +/-
 var pm = function () { return answer.value = -answer.value; };
 // function memory save
 var MemorySave = function () {
     var num = answer.value;
-    if (Number.isNaN(num))
-        return; // checks nan if yes then returned else will considered as number
     memoryRegister.push(num); //pushes the elements in array
     list.innerHTML = '';
     memoryRegister.forEach(function (element) {
@@ -185,8 +176,6 @@ var MemorySave = function () {
 //function memory plus
 var memoryplus = function () {
     var num = answer.value;
-    if (Number.isNaN(num))
-        return; // checks nan if yes then returned else will considered as number
     var lastvalue = list.lastChild.innerHTML; // takes last element of list and stores in lastvalue
     var ans = parseInt(lastvalue) + parseInt(num); //adds the last item in memory and the number
     memoryRegister.pop(lastvalue); //pops out the lastvalue in array
@@ -199,8 +188,6 @@ var memoryplus = function () {
 //function memory minus
 var memoryminus = function () {
     var num = answer.value;
-    if (Number.isNaN(num))
-        return; // checks  nan if yes then returned else will considered as number
     var lastvalue = list.lastChild.innerHTML; // takes last element of list and stores in lastvalue
     var ans = parseInt(lastvalue) - parseInt(num); //substracts the last item in memory and the number
     memoryRegister.pop(lastvalue); //pops out the lastvalue in array
