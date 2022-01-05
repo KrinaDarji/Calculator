@@ -67,7 +67,6 @@ let Answer = () => {
         
         numberbefore= <HTMLInputElement> document.getElementById('sm'); // displaying operations
         numberbefore.innerHTML = answer.value;
-
         answer.value = eval(answer.value);// for calculating basic math operations
         numberafter = answer.value;
         num =  numberafter;
