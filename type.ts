@@ -67,9 +67,10 @@ let Answer = () => {
         
         numberbefore= <HTMLInputElement> document.getElementById('sm'); // displaying operations
         numberbefore.innerHTML = answer.value;
+
         answer.value = eval(answer.value);// for calculating basic math operations
         numberafter = answer.value;
-        num = numberbefore + '=' + numberafter;
+        num =  numberafter;
         HistoryRegister.push(num); //pushes the elements in array
         list1.innerHTML='';
         HistoryRegister.forEach((element:any) => {
@@ -112,7 +113,7 @@ let sqrt = () => answer.value = Math.sqrt(answer.value);
  
 //factorial function
 let  fact = () => {
-    let n: any;
+let n: any;
   let res: any = 1;
   if (n == 0 || n == 1) {
     answer.value = String(n);

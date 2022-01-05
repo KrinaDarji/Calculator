@@ -65,7 +65,7 @@ var Answer = function () {
     numberbefore.innerHTML = answer.value;
     answer.value = eval(answer.value); // for calculating basic math operations
     numberafter = answer.value;
-    num = numberbefore + '=' + numberafter;
+    num = numberafter;
     HistoryRegister.push(num); //pushes the elements in array
     list1.innerHTML = '';
     HistoryRegister.forEach(function (element) {
