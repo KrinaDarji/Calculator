@@ -48,7 +48,7 @@ let Answer = () => {
        answer.value = Math.pow(x,y);
    }
        let ansch = answer.value;
-       let numberbefore;
+       let numberbefore : any;
         console.log("ansch",ansch);
         ansch=String(ansch);
         let anschnew=ansch.slice(-1);
@@ -65,8 +65,9 @@ let Answer = () => {
         let numberafter;
         let num;
         
-        document.getElementById('sm') as HTMLInputElement ; // displaying operations
-        answer.value = eval(numberbefore);// for calculating basic math operations
+        numberbefore= <HTMLInputElement> document.getElementById('sm'); // displaying operations
+        numberbefore.innerHTML = answer.value;
+        answer.value = eval(answer.value);// for calculating basic math operations
         numberafter = answer.value;
         num = numberbefore + '=' + numberafter;
         HistoryRegister.push(num); //pushes the elements in array
@@ -98,8 +99,8 @@ let Memory = () => {
 //clear function
 let clr = () =>
 {
-    let myContainer = document.getElementById('sm') as HTMLInputElement;
-    myContainer.value = "";
+    let myContainer = <HTMLInputElement>document.getElementById('sm') ;
+    myContainer.innerHTML = "";
     answer.value= "";
 }
 

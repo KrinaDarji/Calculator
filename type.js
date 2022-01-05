@@ -61,8 +61,9 @@ var Answer = function () {
     }
     var numberafter;
     var num;
-    document.getElementById('sm'); // displaying operations
-    answer.value = eval(numberbefore); // for calculating basic math operations
+    numberbefore = document.getElementById('sm'); // displaying operations
+    numberbefore.innerHTML = answer.value;
+    answer.value = eval(answer.value); // for calculating basic math operations
     numberafter = answer.value;
     num = numberbefore + '=' + numberafter;
     HistoryRegister.push(num); //pushes the elements in array
@@ -93,7 +94,7 @@ var Memory = function () {
 //clear function
 var clr = function () {
     var myContainer = document.getElementById('sm');
-    myContainer.value = "";
+    myContainer.innerHTML = "";
     answer.value = "";
 };
 //backspace / delete function
