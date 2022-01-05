@@ -112,16 +112,18 @@ let sqrt = () => answer.value = Math.sqrt(answer.value);
  
 //factorial function
 let  fact = () => {
-let n: any;
-  let res: any = 1;
-  if (n == 0 || n == 1) {
-    answer.value = String(n);
-  } else {
-    for (let i = n; i >= 1; i--) {
-      res = res * i;
-    }
-    answer.value = res;
-  }
+   let n = answer.value;
+   let facto = 1;
+        if(n == 0 || n == 1){
+            facto = 1;
+        }
+        else{
+            for( let i = n; i >= 1; i--)
+            {
+            facto = facto * i;
+            }
+        }
+    answer.value = facto;
 }
 
 //function radian to degree

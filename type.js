@@ -103,17 +103,17 @@ var del = function () { return answer.value = answer.value.slice(0, -1); };
 var sqrt = function () { return answer.value = Math.sqrt(answer.value); };
 //factorial function
 var fact = function () {
-    var n;
-    var res = 1;
+    var n = answer.value;
+    var facto = 1;
     if (n == 0 || n == 1) {
-        answer.value = String(n);
+        facto = 1;
     }
     else {
         for (var i = n; i >= 1; i--) {
-            res = res * i;
+            facto = facto * i;
         }
-        answer.value = res;
     }
+    answer.value = facto;
 };
 //function radian to degree
 var Deg = function () {
